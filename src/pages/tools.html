@@ -1,0 +1,70 @@
+<!--{"title":"Clean-Energy Calculators — EV vs Petrol, Heat Pump vs Gas, Flight CO₂, Energy Converter | Carbon.Energy","desc":"Free energy and carbon calculators: EV vs petrol emissions and cost, heat pump vs gas boiler, flight emissions by route, energy unit converter, appliance running cost and CO₂ equivalents.","active":"tools.html","page":"tools","h1":"Clean-energy calculators","sub":"Six fast tools for everyday energy decisions — each localised to your country's grid."}-->
+<section>
+<div class="wrap">
+  <div class="tabs" data-group="t">
+    <button class="on" data-pane="ev">🚗 EV vs petrol</button><button data-pane="hp">🔥 Heat pump vs gas</button><button data-pane="flight">✈️ Flight CO₂</button><button data-pane="conv">🔁 Energy converter</button><button data-pane="app">🔌 Appliance cost</button><button data-pane="eq">🌳 CO₂ equivalents</button>
+  </div>
+
+  <div class="pane on tool" id="ev" data-group="t"><div class="split">
+    <div class="card pad">
+      <h2>Electric vs petrol car</h2>
+      <div class="field"><label for="ev-c">Country grid</label><select id="ev-c" data-country><option>Loading…</option></select></div>
+      <div class="row"><div class="field"><label for="ev-km">km per year</label><input id="ev-km" type="number" value="15000"></div><div class="field"><label for="ev-l">Petrol car L/100 km</label><input id="ev-l" type="number" step="0.1" value="7.5"></div></div>
+      <div class="row"><div class="field"><label for="ev-pp">Petrol price ($/L)</label><input id="ev-pp" type="number" step="0.01" value="1.60"></div><div class="field"><label for="ev-k">EV kWh/100 km</label><input id="ev-k" type="number" step="0.1" value="17"></div></div>
+      <div class="field"><label for="ev-ep">Home charging price ($/kWh)</label><input id="ev-ep" type="number" step="0.01" value="0.16"></div>
+    </div>
+    <div><div class="result" id="ev-out"></div><div class="vid" data-id="Chp9VlSs25c" data-t="How green are electric cars? — The Guardian" style="margin-top:18px"></div><p class="small muted" style="margin-top:6px">How green are electric cars? · The Guardian</p></div>
+  </div></div>
+
+  <div class="pane tool" id="hp" data-group="t"><div class="split">
+    <div class="card pad">
+      <h2>Heat pump vs gas boiler</h2>
+      <div class="field"><label for="hp-c">Country grid</label><select id="hp-c" data-country><option>Loading…</option></select></div>
+      <div class="row"><div class="field"><label for="hp-d">Annual heat demand (kWh)</label><input id="hp-d" type="number" value="12000"></div><div class="field"><label for="hp-eff">Boiler efficiency (%)</label><input id="hp-eff" type="number" value="90"></div></div>
+      <div class="row"><div class="field"><label for="hp-cop">Heat pump SCOP</label><input id="hp-cop" type="number" step="0.1" value="3.2"></div><div class="field"><label for="hp-gp">Gas price ($/kWh)</label><input id="hp-gp" type="number" step="0.01" value="0.07"></div></div>
+      <div class="field"><label for="hp-ep">Electricity price ($/kWh)</label><input id="hp-ep" type="number" step="0.01" value="0.18"></div>
+      <p class="tiny dim">Tip: heat demand ≈ last year's gas use × boiler efficiency.</p>
+    </div>
+    <div><div class="result" id="hp-out"></div><div class="vid" data-id="QykwWs3L1W8" data-t="Heat Pumps Explained — The Engineering Mindset" style="margin-top:18px"></div><p class="small muted" style="margin-top:6px">Heat pumps explained · The Engineering Mindset</p></div>
+  </div></div>
+
+  <div class="pane tool" id="flight" data-group="t"><div class="split">
+    <div class="card pad">
+      <h2>Flight emissions</h2>
+      <div class="row"><div class="field"><label for="fl-a">From</label><select id="fl-a"></select></div><div class="field"><label for="fl-b">To</label><select id="fl-b"></select></div></div>
+      <div class="row"><div class="field"><label for="fl-cls">Cabin</label><select id="fl-cls"><option value="1">Economy</option><option value="1.6">Premium economy</option><option value="2.9">Business</option><option value="4">First</option></select></div><div class="field"><label for="fl-rt">Trip</label><select id="fl-rt"><option value="1">Return</option><option value="0">One-way</option></select></div></div>
+      <label class="check"><input type="checkbox" id="fl-rf" checked> Include non-CO₂ warming (contrails, NOx) — ×1.9 multiplier</label>
+    </div>
+    <div class="result" id="fl-out"></div>
+  </div></div>
+
+  <div class="pane tool" id="conv" data-group="t"><div class="split">
+    <div class="card pad">
+      <h2>Energy unit converter</h2>
+      <div class="row"><div class="field"><label for="cv-v">Amount</label><input id="cv-v" type="number" value="100"></div>
+      <div class="field"><label for="cv-u">Unit</label><select id="cv-u"><option value="kwh">kWh</option><option value="mwh">MWh</option><option value="mj">MJ</option><option value="gj">GJ</option><option value="therm">therm (natural gas)</option><option value="btu">BTU</option><option value="m3gas">m³ natural gas</option><option value="loil">litres heating oil</option><option value="lpetrol">litres petrol</option><option value="ldiesel">litres diesel</option><option value="kgcoal">kg coal</option></select></div></div>
+    </div>
+    <div class="result" id="cv-out"></div>
+  </div></div>
+
+  <div class="pane tool" id="app" data-group="t"><div class="split">
+    <div class="card pad">
+      <h2>Appliance running cost</h2>
+      <div class="field"><label for="ap-p">Preset</label><select id="ap-p"><option value="custom">Custom</option><option value="fridge">Fridge (avg draw)</option><option value="ac">Central air conditioner</option><option value="heater">Space heater</option><option value="tv">TV</option><option value="pc">Gaming PC</option><option value="dryer">Tumble dryer</option><option value="led">LED bulb</option><option value="incan">Incandescent bulb</option></select></div>
+      <div class="row"><div class="field"><label for="ap-w">Power (watts)</label><input id="ap-w" type="number" value="1500"></div><div class="field"><label for="ap-h">Hours per day</label><input id="ap-h" type="number" step="0.1" value="4"></div></div>
+      <div class="row"><div class="field"><label for="ap-ep">Electricity price ($/kWh)</label><input id="ap-ep" type="number" step="0.01" value="0.18"></div><div class="field"><label for="ap-c">Country grid</label><select id="ap-c" data-country><option>Loading…</option></select></div></div>
+    </div>
+    <div class="result" id="ap-out"></div>
+  </div></div>
+
+  <div class="pane tool" id="eq" data-group="t"><div class="split">
+    <div class="card pad">
+      <h2>What does a tonne of CO₂ look like?</h2>
+      <div class="field"><label for="eq-t">Tonnes of CO₂</label><input id="eq-t" type="number" step="0.1" value="1"></div>
+      <p class="small muted">One tonne of CO₂ fills a sphere about 10 metres across at room temperature. Use this tool to translate any result into everyday terms.</p>
+    </div>
+    <div class="result" id="eq-out"></div>
+  </div></div>
+</div>
+</section>
+<section style="padding-top:0"><div class="wrap"><div class="ctaband"><div><h2>Ready to act on the numbers?</h2><p>Get free, no-obligation quotes for heat pumps, EV chargers, solar and batteries from vetted local pros.</p></div><a class="btn lg" href="quotes.html">Compare quotes →</a></div></div></section>
