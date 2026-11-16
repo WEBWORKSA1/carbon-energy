@@ -1,0 +1,119 @@
+<!--{"title":"Carbon.Energy — Live Carbon Intensity, CO₂ Tracker, Footprint Calculator & Clean-Energy Quotes","desc":"Track live grid carbon intensity and atmospheric CO₂, calculate your carbon footprint, estimate solar savings and get free quotes for solar, heat pumps, batteries and EV chargers.","page":"home","schema":{"@context":"https://schema.org","@graph":[{"@type":"WebSite","name":"Carbon.Energy","url":"https://carbon.energy/"},{"@type":"Organization","name":"Carbon.Energy","url":"https://carbon.energy/","logo":"https://carbon.energy/favicon.svg"}]}}-->
+<section class="hero">
+  <div class="wrap">
+    <span class="pill"><span class="dot"></span>Live data · updated automatically</span>
+    <h1 style="margin-top:18px;max-width:900px">Know your carbon.<br><em>Cut your energy bill.</em></h1>
+    <p class="lead">Carbon.Energy turns open climate and grid data into decisions: how clean your electricity is right now, what your footprint really is, and exactly how much solar, a heat pump or an EV would save you — with free quotes from vetted local installers.</p>
+    <div class="btns" style="margin-top:26px">
+      <a class="btn lg" href="calculator.html">Calculate my footprint</a>
+      <a class="btn lg alt" href="quotes.html">Get free solar &amp; heat-pump quotes</a>
+    </div>
+    <div class="ticker" aria-label="Live climate indicators">
+      <div><small id="t-ppm-l">Atmospheric CO₂ (Mauna Loa)</small><b id="t-ppm" style="color:var(--amber)">…</b></div>
+      <div><small id="t-wci-l">World grid intensity, gCO₂/kWh</small><b id="t-wci">…</b></div>
+      <div><small id="t-ren-l">Renewable share of world power</small><b id="t-ren" style="color:var(--volt)">…</b></div>
+      <div><small id="t-uk-l">Live: Great Britain grid now</small><b id="t-uk" style="color:var(--cyan)">…</b></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:10px">
+  <div class="wrap split">
+    <div class="card pad">
+      <span class="kicker">How clean is your power?</span>
+      <h2>Your country's grid, in one number</h2>
+      <p class="muted">Every kilowatt-hour you use carries a carbon cost that depends on how your country makes electricity. Pick a country to see its grid intensity, renewable share and what it means for your home and car.</p>
+      <label for="home-country">Country</label>
+      <select id="home-country" aria-label="Choose your country"><option>Loading…</option></select>
+      <div id="home-grid" style="margin-top:18px"><div class="skeleton" style="height:60px"></div></div>
+    </div>
+    <div class="grid">
+      <div class="card"><h3>🌿 Cleanest large grids</h3><p class="small muted">gCO₂ per kWh, latest year</p><div class="chips" id="clean5"></div></div>
+      <div class="card"><h3>🏭 Most carbon-intensive grids</h3><p class="small muted">gCO₂ per kWh, latest year</p><div class="chips" id="dirty5"></div></div>
+      <a class="card hover" href="countries.html"><b>Compare 200+ countries →</b><p class="small muted" style="margin:4px 0 0">Sortable rankings of grid intensity, renewables, total and per-capita CO₂.</p></a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="kicker">Free tools</span>
+    <h2>Everything you need to decarbonise — and save</h2>
+    <p class="muted" style="max-width:720px">Built on peer-reviewed emission factors and open data from Our World in Data, NOAA, Open-Meteo and national grid operators. No sign-up, no paywall.</p>
+    <div class="grid g3" style="margin-top:26px">
+      <a class="card hover" href="calculator.html"><div class="ico">👣</div><h3>Carbon footprint calculator</h3><p class="muted small">Home energy, car, flights, food and shopping — localised to your grid, with a ranked reduction plan.</p></a>
+      <a class="card hover" href="solar.html"><div class="ico a">☀️</div><h3>Solar savings estimator</h3><p class="muted small">A full year of real sunshine data for your address: system size, production, payback and 25-year savings.</p></a>
+      <a class="card hover" href="business.html"><div class="ico c">🏢</div><h3>Business emissions estimator</h3><p class="muted small">Quick Scope 1, 2 and 3 baseline for SMEs, per-employee intensity and an offset budget range.</p></a>
+      <a class="card hover" href="tools.html#ev"><div class="ico">🚗</div><h3>EV vs petrol</h3><p class="muted small">Annual CO₂ and fuel cost, including the battery-manufacturing break-even point on your grid.</p></a>
+      <a class="card hover" href="tools.html#hp"><div class="ico a">🔥</div><h3>Heat pump vs gas boiler</h3><p class="muted small">Running cost and emissions side by side, using your prices and your grid.</p></a>
+      <a class="card hover" href="grid.html"><div class="ico c">⚡</div><h3>Live grid &amp; best time to plug in</h3><p class="muted small">Real-time carbon intensity with a 48-hour forecast and the greenest window to run heavy appliances.</p></a>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="ctaband">
+      <div><span class="kicker">Free · no obligation · 2 minutes</span><h2>Compare up to 3 quotes from vetted installers</h2><p>Solar panels, home batteries, heat pumps, EV chargers, insulation and energy audits — plus net-zero and carbon-accounting support for businesses.</p></div>
+      <a class="btn lg" href="quotes.html">Start my free quote →</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap split">
+    <div>
+      <span class="kicker">The Keeling Curve</span>
+      <h2>CO₂ in the air keeps climbing</h2>
+      <p class="muted">Monthly atmospheric carbon dioxide measured at Mauna Loa Observatory since 1958. Pre-industrial levels were about 280 ppm.</p>
+      <div class="card"><div class="chart" id="home-keeling" style="height:260px"></div></div>
+      <p class="small" style="margin-top:12px"><a href="co2.html">Open the full CO₂ tracker →</a></p>
+    </div>
+    <div>
+      <span class="kicker">Energy &amp; climate news</span>
+      <h2>Latest headlines</h2>
+      <div class="news" id="home-news"><div class="skeleton" style="height:70px"></div><div class="skeleton" style="height:70px"></div><div class="skeleton" style="height:70px"></div></div>
+      <p class="small" style="margin-top:12px"><a href="news.html">More energy news →</a></p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="kicker">Watch &amp; learn</span>
+    <h2>Clean energy, explained</h2>
+    <div class="grid g3" style="margin-top:20px">
+      <div><div class="vid" data-id="xKxrkht7CpY" data-t="How do solar panels work? — TED-Ed"></div><p class="small" style="margin-top:8px"><b>How do solar panels work?</b><br><span class="muted">TED-Ed</span></p></div>
+      <div><div class="vid" data-id="73qzU8vOc4U" data-t="Why heat pumps are essential for the future — Undecided with Matt Ferrell"></div><p class="small" style="margin-top:8px"><b>Why heat pumps are essential for the future</b><br><span class="muted">Undecided with Matt Ferrell</span></p></div>
+      <div><div class="vid" data-id="kfNr2zUDEZc" data-t="The tricky plan to pull CO2 out of the air — Vox"></div><p class="small" style="margin-top:8px"><b>The tricky plan to pull CO₂ out of the air</b><br><span class="muted">Vox</span></p></div>
+    </div>
+    <p class="small" style="margin-top:14px"><a href="videos.html">Browse the video library →</a></p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="kicker">Guides</span>
+    <h2>Straight answers, real numbers</h2>
+    <div class="grid g3" style="margin-top:20px">
+      <a class="card hover" href="guides/what-is-carbon-intensity.html"><span class="badge v">Basics</span><h3 style="margin-top:10px">What is grid carbon intensity?</h3><p class="muted small">gCO₂/kWh explained, why it swings hour by hour and how to use it.</p></a>
+      <a class="card hover" href="guides/is-solar-worth-it.html"><span class="badge a">Solar</span><h3 style="margin-top:10px">Is solar worth it? The honest maths</h3><p class="muted small">Payback, self-consumption, export rates and when batteries pay.</p></a>
+      <a class="card hover" href="guides/heat-pump-buyers-guide.html"><span class="badge a">Heating</span><h3 style="margin-top:10px">Heat pump buyer's guide</h3><p class="muted small">Sizing, SCOP, cold climates, running costs and installer red flags.</p></a>
+      <a class="card hover" href="guides/ev-vs-gas-emissions.html"><span class="badge v">Transport</span><h3 style="margin-top:10px">Are EVs really cleaner?</h3><p class="muted small">Life-cycle emissions, battery break-even and the grid factor.</p></a>
+      <a class="card hover" href="guides/carbon-offsets-guide.html"><span class="badge r">Markets</span><h3 style="margin-top:10px">Carbon offsets vs removals</h3><p class="muted small">What a credit actually buys, quality signals and greenwashing traps.</p></a>
+      <a class="card hover" href="guides/scope-1-2-3-emissions.html"><span class="badge v">Business</span><h3 style="margin-top:10px">Scope 1, 2 and 3 for small businesses</h3><p class="muted small">Build a credible baseline in a week without expensive software.</p></a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap narrow">
+    <h2 class="center">Frequently asked questions</h2>
+    <div class="faq" style="margin-top:20px">
+      <details><summary>Where does Carbon.Energy get its data?</summary><p>Grid intensity and emissions come from Our World in Data's open energy and CO₂ datasets (built on Ember, the Energy Institute and the Global Carbon Project). Atmospheric CO₂ comes from NOAA's Mauna Loa record, live British grid data from the National Energy System Operator Carbon Intensity API, and sunshine data from Open-Meteo. An automated job refreshes the data on a schedule.</p></details>
+      <details><summary>Are the calculators accurate?</summary><p>They use published emission factors and your own inputs, so they're good for decisions and comparisons, typically within ±15–25% of a professional assessment. For investment-grade numbers, request a site survey through our free quote service.</p></details>
+      <details><summary>How do free quotes work?</summary><p>Tell us what you're considering and where. We match you with up to three vetted installers or consultants who serve your area. There's no cost and no obligation, and we never sell your details to unrelated marketers.</p></details>
+      <details><summary>Is Carbon.Energy affiliated with an energy company?</summary><p>No. Carbon.Energy is an independent, ad-supported information service. See our <a href="disclaimer.html">disclaimer and trademark notice</a>.</p></details>
+    </div>
+  </div>
+</section>

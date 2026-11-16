@@ -1,0 +1,21 @@
+<!--{"title":"Electricity Carbon Intensity & CO₂ Emissions by Country — 2025 Rankings | Carbon.Energy","desc":"Sortable rankings for 200+ countries: grid carbon intensity (gCO₂/kWh), renewable and low-carbon electricity share, total CO₂ and CO₂ per person. Updated automatically from open data.","active":"countries.html","page":"countries","h1":"Countries: grid carbon &amp; emissions","sub":"Click any column to sort. Click a country for its full profile, power mix and history charts."}-->
+<section>
+<div class="wrap">
+  <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:14px">
+    <input id="cq" type="search" placeholder="Filter countries…" style="max-width:320px" aria-label="Filter countries">
+    <label class="check" style="margin:0"><input type="checkbox" id="cbig"> Only large grids (&gt;20 TWh/yr)</label>
+    <span class="muted small" id="ccount" style="margin-left:auto"></span>
+  </div>
+  <div class="tblwrap">
+    <table class="tbl" id="ctbl">
+      <thead><tr><th data-k="n">Country</th><th class="n" data-k="ci">gCO₂/kWh</th><th>Grade</th><th class="n" data-k="ren">Renewables</th><th class="n" data-k="lc">Low-carbon</th><th class="n" data-k="co2">CO₂ (Mt)</th><th class="n" data-k="pc">t / person</th><th class="n" data-k="sh">Global share</th></tr></thead>
+      <tbody><tr><td colspan="8"><div class="skeleton" style="height:200px"></div></td></tr></tbody>
+    </table>
+  </div>
+  <p class="tiny dim" style="margin-top:10px">Grid intensity: life-cycle gCO₂e per kWh of electricity generated (Ember via Our World in Data). CO₂: territorial fossil-fuel and industry emissions (Global Carbon Project via Our World in Data). Latest available year per country.</p>
+</div>
+</section>
+<section style="padding-top:0"><div class="wrap narrow article">
+<h2>Reading the rankings</h2>
+<p><b>Grid intensity</b> tells you how dirty each kilowatt-hour is — it's what matters for an EV, a heat pump or a data centre. <b>Low-carbon share</b> adds nuclear to renewables. <b>CO₂ per person</b> captures the whole economy, including transport, industry and heating, so a country can have a very clean grid and still high per-capita emissions (or the reverse). Use both lenses before drawing conclusions.</p>
+</div></section>
