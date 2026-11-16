@@ -1,0 +1,112 @@
+<!--{"title":"Get Free Quotes — Solar Panels, Heat Pumps, Batteries, EV Chargers & Energy Audits | Carbon.Energy","desc":"Compare up to 3 free, no-obligation quotes from vetted local installers for solar, home batteries, heat pumps, EV chargers, insulation and energy audits — plus business net-zero support.","active":"","page":"quotes"}-->
+<section class="hero" style="padding-bottom:30px">
+  <div class="wrap split">
+    <div>
+      <span class="pill"><span class="dot"></span>Free · no obligation · takes 2 minutes</span>
+      <h1 style="margin-top:16px">Compare up to 3 quotes from <em>vetted local installers</em></h1>
+      <p class="lead">Solar, batteries, heat pumps, EV chargers, insulation and energy audits. One short form, matched to pros who actually serve your area — so you can compare price, kit and warranty side by side.</p>
+      <div class="grid g3" style="margin-top:24px;gap:12px">
+        <div class="card stat"><b class="v">20–30%</b><span>typical price spread between quotes for the same job</span></div>
+        <div class="card stat"><b class="a">3</b><span>matched pros maximum — never a bidding frenzy</span></div>
+        <div class="card stat"><b class="c">$0</b><span>cost to you, ever</span></div>
+      </div>
+      <h3 style="margin-top:30px">How it works</h3>
+      <ol class="muted" style="padding-left:1.2em"><li><b style="color:var(--tx)">Tell us about your project</b> — what you want and where.</li><li><b style="color:var(--tx)">We match you</b> with up to three vetted installers or consultants licensed for your area.</li><li><b style="color:var(--tx)">Compare &amp; decide</b> — quotes, survey times and finance options. No pressure.</li></ol>
+      <div class="card" style="margin-top:20px">
+        <h3>Your estimated savings</h3>
+        <div class="grid g2" style="gap:10px"><div class="stat"><b class="v" id="q-save">—</b><span>first-year bill savings</span></div><div class="stat"><b class="a" id="q-save25">—</b><span>indicative 25-year savings</span></div></div>
+        <p class="tiny dim" style="margin:8px 0 0">Indicative only, based on your bill and chosen upgrades. Installers confirm on survey.</p>
+      </div>
+    </div>
+    <div class="card pad" style="position:sticky;top:90px">
+      <form id="leadform" data-ce-form="LEAD — clean-energy quote request" data-ok="Request received!">
+        <div class="steps"><i></i><i></i><i></i><i></i></div>
+
+        <div class="step">
+          <h2>What are you interested in?</h2><p class="small muted">Choose all that apply.</p>
+          <div class="opts">
+            <label class="opt"><input type="checkbox" name="service" value="solar"><span><em>☀️</em>Solar panels</span></label>
+            <label class="opt"><input type="checkbox" name="service" value="battery"><span><em>🔋</em>Home battery</span></label>
+            <label class="opt"><input type="checkbox" name="service" value="heatpump"><span><em>🔥</em>Heat pump</span></label>
+            <label class="opt"><input type="checkbox" name="service" value="charger"><span><em>🔌</em>EV charger</span></label>
+            <label class="opt"><input type="checkbox" name="service" value="insulation"><span><em>🏠</em>Insulation &amp; windows</span></label>
+            <label class="opt"><input type="checkbox" name="service" value="audit"><span><em>📋</em>Home energy audit</span></label>
+            <label class="opt"><input type="checkbox" name="service" value="commercial-solar"><span><em>🏭</em>Commercial solar</span></label>
+            <label class="opt"><input type="checkbox" name="service" value="business-carbon"><span><em>📊</em>Business carbon / net-zero</span></label>
+            <label class="opt"><input type="checkbox" name="service" value="carbon-credits"><span><em>🌳</em>Carbon credits &amp; removals</span></label>
+          </div>
+          <button class="btn lg" data-next type="button" style="width:100%;margin-top:18px">Continue →</button>
+        </div>
+
+        <div class="step">
+          <h2>About the property</h2>
+          <div class="row">
+            <div class="field"><label for="q-own">You…</label><select id="q-own" name="ownership" required><option value="">Select…</option><option>Own</option><option>Rent</option><option>Manage a business site</option><option>Landlord / property manager</option></select></div>
+            <div class="field"><label for="q-type">Property type</label><select id="q-type" name="property_type"><option>Detached house</option><option>Semi-detached / townhouse</option><option>Apartment / condo</option><option>Farm / rural</option><option>Office / retail</option><option>Industrial / warehouse</option></select></div>
+          </div>
+          <div class="row">
+            <div class="field"><label for="q-country">Country</label><select id="q-country" name="country" required><option>Loading…</option></select></div>
+            <div class="field"><label for="q-zip">ZIP / postal code</label><input id="q-zip" name="postal_code" required autocomplete="postal-code" placeholder="e.g. 90210 or H2X 1Y4"></div>
+          </div>
+          <div class="field"><label for="q-city">City</label><input id="q-city" name="city" autocomplete="address-level2"></div>
+          <div class="row">
+            <div class="field"><label for="q-bill">Avg monthly electricity bill ($)</label><input id="q-bill" name="monthly_bill" type="number" min="0" value="150"></div>
+            <div class="field"><label for="q-shade">Roof shading</label><select id="q-shade" name="roof_shade"><option>No shade</option><option>Some shade</option><option>Heavy shade</option><option>Not sure / not applicable</option></select></div>
+          </div>
+          <div class="btns"><button class="btn alt" data-prev type="button">← Back</button><button class="btn" data-next type="button" style="flex:1">Continue →</button></div>
+        </div>
+
+        <div class="step">
+          <h2>Your project</h2>
+          <div class="field"><label for="q-time">When would you like to start?</label><select id="q-time" name="timeline" required><option value="">Select…</option><option>ASAP</option><option>1–3 months</option><option>3–6 months</option><option>6–12 months</option><option>Just researching</option></select></div>
+          <div class="row">
+            <div class="field"><label for="q-fin">Payment preference</label><select id="q-fin" name="finance"><option>Not sure yet</option><option>Cash / savings</option><option>Loan / financing</option><option>Lease / PPA</option><option>Interested in rebates &amp; grants</option></select></div>
+            <div class="field"><label for="q-bud">Budget (optional)</label><select id="q-bud" name="budget"><option>Not sure</option><option>Under $5,000</option><option>$5,000–$15,000</option><option>$15,000–$30,000</option><option>$30,000–$75,000</option><option>$75,000+</option></select></div>
+          </div>
+          <div class="field"><label for="q-notes">Anything installers should know? (optional)</label><textarea id="q-notes" name="notes" placeholder="Roof age, existing system, number of EVs, heating type, business size…"></textarea></div>
+          <div class="btns"><button class="btn alt" data-prev type="button">← Back</button><button class="btn" data-next type="button" style="flex:1">Last step →</button></div>
+        </div>
+
+        <div class="step">
+          <h2>Where should we send your quotes?</h2>
+          <div class="row"><div class="field"><label for="q-name">Full name</label><input id="q-name" name="name" required autocomplete="name"></div><div class="field"><label for="q-email">Email</label><input id="q-email" name="email" type="email" required autocomplete="email"></div></div>
+          <div class="row"><div class="field"><label for="q-phone">Phone (recommended)</label><input id="q-phone" name="phone" type="tel" autocomplete="tel" placeholder="Fastest way to book a survey"></div><div class="field"><label for="q-best">Best time to reach you</label><select id="q-best" name="best_time"><option>Any time</option><option>Morning</option><option>Afternoon</option><option>Evening</option><option>Email only, please</option></select></div></div>
+          <label class="check"><input type="checkbox" name="consent" value="yes" required> I agree that Carbon.Energy may share my request with up to three vetted installers or consultants who may contact me by phone, text or email about it, including via automated means. Consent is not a condition of purchase. I've read the <a href="privacy.html" target="_blank">privacy policy</a>.</label>
+          <label class="check" style="margin-top:8px"><input type="checkbox" name="newsletter" value="yes"> Also send me the free weekly Carbon.Energy briefing.</label>
+          <input class="hp" name="_honey" tabindex="-1" autocomplete="off">
+          <div class="btns" style="margin-top:16px"><button class="btn alt" data-prev type="button">← Back</button><button class="btn lg" type="submit" style="flex:1">Get my free quotes</button></div>
+          <div class="formmsg"></div>
+          <div class="trust"><span>No cost, no obligation</span><span>Max 3 contacts</span><span>Never sold to unrelated marketers</span></div>
+        </div>
+      </form>
+      <div id="lead-done" style="display:none">
+        <div class="ico" style="width:64px;height:64px;font-size:2rem">✅</div>
+        <h2>You're all set!</h2>
+        <p class="muted">We're matching your request with vetted local pros now. Expect a call or email within 1–2 business days. Meanwhile:</p>
+        <ul class="tip-list"><li><span>Pull 12 months of electricity bills — installers will ask</span></li><li><span>Snap a photo of your roof and electrical panel</span></li><li><span>Read: <a href="guides/how-to-compare-solar-quotes.html">How to compare quotes like a pro</a></span></li></ul>
+        <a class="btn alt" href="index.html" style="margin-top:16px">Back to Carbon.Energy</a>
+      </div>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="wrap">
+    <h2 class="center">What our partners install</h2>
+    <div class="grid g4" style="margin-top:20px">
+      <div class="card"><div class="ico a">☀️</div><h3>Solar PV</h3><p class="small muted">Rooftop and ground-mount systems, microinverters or optimisers, monitoring and maintenance.</p></div>
+      <div class="card"><div class="ico">🔋</div><h3>Batteries</h3><p class="small muted">Backup power, time-of-use arbitrage and solar self-consumption — retrofit or new build.</p></div>
+      <div class="card"><div class="ico c">🔥</div><h3>Heat pumps</h3><p class="small muted">Air-source, cold-climate and ground-source systems with proper heat-loss sizing.</p></div>
+      <div class="card"><div class="ico">🔌</div><h3>EV charging</h3><p class="small muted">Level 2 / 7 kW+ home chargers, smart and solar-aware charging, workplace and fleet.</p></div>
+    </div>
+  </div>
+</section>
+<section style="padding-top:0"><div class="wrap narrow">
+  <h2 class="center">Questions</h2>
+  <div class="faq" style="margin-top:16px">
+    <details><summary>Is it really free?</summary><p>Yes. Installers and consultants in our network pay us a referral fee when we introduce a qualified customer, which is how we keep the service — and our calculators — free for you. It never changes the price you're quoted.</p></details>
+    <details><summary>How are installers vetted?</summary><p>Partners must hold the licences, insurance and manufacturer certifications required in their region, provide references and maintain good customer reviews. We remove partners who receive repeated complaints.</p></details>
+    <details><summary>Will I be bombarded with calls?</summary><p>No. Your request goes to a maximum of three matched companies, and you can tell us you prefer email only.</p></details>
+    <details><summary>I rent — can I still save?</summary><p>Often, yes: community solar, plug-in balcony panels where permitted, portable batteries, smart thermostats and energy audits. Tell us in the notes and we'll match accordingly.</p></details>
+    <details><summary>Are you an installer or utility?</summary><p>No. Carbon.Energy is an independent comparison and information service. See our <a href="disclaimer.html">disclaimer</a>.</p></details>
+  </div>
+</div></section>
