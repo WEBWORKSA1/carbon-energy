@@ -1,0 +1,48 @@
+---
+layout: default
+---
+{%- assign cs = site.data.countries -%}
+{%- assign c = cs | where: "i3", page.i3 | first -%}
+{%- assign wci = site.world_ci -%}
+{%- if c.ci -%}
+  {%- if c.ci < 100 -%}{%- assign g = "Very low-carbon grid" -%}{%- assign gc = "very-low" -%}
+  {%- elsif c.ci < 250 -%}{%- assign g = "Low-carbon grid" -%}{%- assign gc = "low" -%}
+  {%- elsif c.ci < 450 -%}{%- assign g = "Moderate-carbon grid" -%}{%- assign gc = "moderate" -%}
+  {%- elsif c.ci < 650 -%}{%- assign g = "High-carbon grid" -%}{%- assign gc = "high" -%}
+  {%- else -%}{%- assign g = "Very high-carbon grid" -%}{%- assign gc = "very-high" -%}{%- endif -%}
+  {%- assign rk = 1 -%}{%- assign tot = 0 -%}
+  {%- for x in cs -%}{%- if x.ci -%}{%- assign tot = tot | plus: 1 -%}{%- if x.ci < c.ci -%}{%- assign rk = rk | plus: 1 -%}{%- endif -%}{%- endif -%}{%- endfor -%}
+{%- else -%}{%- assign g = "n/a" -%}{%- assign gc = "" -%}{%- endif -%}
+{%- if c.pc -%}{%- assign prk = 1 -%}{%- assign ptot = 0 -%}
+  {%- for x in cs -%}{%- if x.pc -%}{%- assign ptot = ptot | plus: 1 -%}{%- if x.pc > c.pc -%}{%- assign prk = prk | plus: 1 -%}{%- endif -%}{%- endif -%}{%- endfor -%}
+{%- endif -%}
+<section class="pagehead"><div class="wrap"><div class="crumbs"><a href="../../index.html">Home</a> › <a href="../../countries.html">Countries</a> › {{ c.n }}</div><h1>{{ c.n }}: electricity carbon intensity &amp; CO₂ emissions</h1><p>Grid carbon intensity, power mix and emissions profile for {{ c.n }}, updated automatically from open data.</p></div></section>
+<section><div class="wrap">
+<div class="grid g4">
+<div class="card stat"><b class="v">{{ c.ci | default: "n/a" }}<small class="muted" style="font-size:.9rem"> g/kWh</small></b><span>Grid carbon intensity ({{ c.y | default: "n/a" }})</span><div style="margin-top:8px"><span class="lvl {{ gc }}">{{ g }}</span></div></div>
+<div class="card stat"><b class="c">{% if c.lc %}{{ c.lc }}%{% else %}n/a{% endif %}</b><span>Low-carbon electricity (renewables + nuclear)</span></div>
+<div class="card stat"><b class="a">{% if c.pc %}{{ c.pc }} t{% else %}n/a{% endif %}</b><span>CO₂ per person ({{ c.cy | default: "n/a" }})</span></div>
+<div class="card stat"><b>{% if c.co2 %}{{ c.co2 }} Mt{% else %}n/a{% endif %}</b><span>Total CO₂ emissions ({{ c.cy | default: "n/a" }})</span></div>
+</div>
+<div class="split" style="margin-top:26px">
+<div class="article">
+{% if c.ci %}<p>In {{ c.y }}, electricity generated in {{ c.n }} emitted an average of <b>{{ c.ci }} grams of CO₂-equivalent per kilowatt-hour</b> ({{ g | downcase }}). That is {% if c.ci < wci %}cleaner than{% else %}more carbon-intensive than{% endif %} the world average of {{ wci }} g/kWh, placing {{ c.n }} <b>#{{ rk }} of {{ tot }}</b> countries from cleanest to dirtiest grid.</p>
+<p>Low-carbon sources — renewables plus nuclear — supplied {{ c.lc | default: "n/a" }}% of electricity, of which renewables alone were {{ c.ren | default: "n/a" }}%.</p>{% endif %}
+{% if c.co2 %}<p>Across the whole economy, {{ c.n }} emitted about <b>{{ c.co2 }} million tonnes of CO₂</b> from fossil fuels and industry in {{ c.cy }}{% if c.pc %}, or <b>{{ c.pc }} tonnes per person</b>{% endif %}{% if c.sh %} — {{ c.sh }}% of the global total{% endif %}.{% if prk %} On a per-person basis that ranks #{{ prk }} of {{ ptot }} countries (highest first).{% endif %}</p>{% endif %}
+{% if c.ci %}{%- assign evg = c.ci | times: 0.17 | round -%}{%- assign hh = c.ci | times: 12 | divided_by: 1000.0 | round: 1 -%}<p>What it means for you: charging an electric car on {{ c.n }}'s average grid produces roughly <b>{{ evg }} g CO₂ per km</b> (at 17 kWh/100 km), versus about 170–190 g/km tailpipe for a typical petrol car. A 1,000 kWh-per-month household on this grid is responsible for about <b>{{ hh }} tonnes of CO₂ a year</b> from electricity alone.</p>{% endif %}
+{% if c.mix %}<div class="card" style="margin:20px 0"><h3>Electricity mix ({{ c.y }})</h3><div class="mix">{% for m in c.mix %}<i style="width:{{ m[1] }}%;background:{{ site.mixc[m[0]] }}" title="{{ site.mixn[m[0]] }} {{ m[1] }}%"></i>{% endfor %}</div><div class="legend">{% for m in c.mix %}<span style="--c:{{ site.mixc[m[0]] }}">{{ site.mixn[m[0]] }} {{ m[1] }}%</span>{% endfor %}</div></div>{% endif %}
+</div>
+<aside class="grid">
+<div class="card"><h3>Your footprint in {{ c.n }}</h3><p class="muted small">Our calculator uses {{ c.n }}'s grid intensity to estimate your household emissions.</p><a class="btn" href="../../calculator.html?c={{ c.i3 }}">Calculate my footprint →</a></div>
+<div class="card"><h3>Cut your bill &amp; emissions</h3><p class="muted small">Compare free quotes for solar, batteries, heat pumps and energy audits from vetted local installers.</p><a class="btn amber" href="../../quotes.html?c={{ c.i3 }}">Get free quotes</a></div>
+<a class="card hover" href="../../countries.html"><b>Compare all countries →</b><p class="small muted" style="margin:4px 0 0">Sortable rankings of grid intensity, renewables and CO₂.</p></a>
+</aside>
+</div>
+<h2 style="margin-top:40px">Frequently asked questions</h2>
+<div class="faq">
+<details><summary>What is the carbon intensity of electricity in {{ c.n }}?</summary><p>{% if c.ci %}In {{ c.y }}, {{ c.n }}'s electricity averaged about {{ c.ci }} gCO₂e per kWh according to Our World in Data / Ember.{% else %}Data is not available.{% endif %}</p></details>
+<details><summary>How much of {{ c.n }}'s electricity is renewable?</summary><p>{% if c.ren %}Renewables supplied {{ c.ren }}% of electricity in {{ c.y }}; including nuclear, low-carbon sources supplied {{ c.lc }}%.{% else %}Data is not available.{% endif %}</p></details>
+<details><summary>What are {{ c.n }}'s CO₂ emissions per person?</summary><p>{% if c.pc %}About {{ c.pc }} tonnes of CO₂ per person in {{ c.cy }} (fossil fuels and industry).{% else %}Data is not available.{% endif %}</p></details>
+</div>
+<p class="tiny dim" style="margin-top:20px">Sources: Our World in Data energy &amp; CO₂ datasets (CC BY 4.0), based on Ember, the Energy Institute Statistical Review of World Energy and the Global Carbon Project.</p>
+</div></section>

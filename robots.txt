@@ -1,7 +1,9 @@
 User-agent: *
 Allow: /
+Disallow: /src/
 
 User-agent: Mediapartners-Google
 Allow: /
+Disallow: /src/
 
 Sitemap: https://carbon.energy/sitemap.xml

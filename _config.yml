@@ -1,0 +1,21 @@
+# Carbon.Energy — GitHub Pages (Jekyll) configuration.
+# Pages are thin stubs that pull their bodies from src/ (includes_dir) and wrap
+# them in _layouts/default.html. When the optional GitHub Action
+# (automation/update.yml) is installed, it writes fully static HTML over these
+# stubs, adds the 220+ full country pages, news feed and refreshed data.
+title: Carbon.Energy
+url: https://carbon.energy
+includes_dir: src
+exclude: [scripts, automation, README.md, BUILD-PROMPT.md, Gemfile, Gemfile.lock]
+world_ci: 458
+nav:
+  - ["calculator.html", "Footprint"]
+  - ["solar.html", "Solar"]
+  - ["tools.html", "Tools"]
+  - ["grid.html", "Live Grid"]
+  - ["co2.html", "CO₂ Tracker"]
+  - ["countries.html", "Countries"]
+  - ["guides/", "Guides"]
+  - ["news.html", "News"]
+mixc: {coal: "#6f6f6f", gas: "#ff9f43", oil: "#a0522d", nuclear: "#a78bfa", hydro: "#4cc9f0", wind: "#7ee8c7", solar: "#ffd23f", bio: "#8fd11a", other: "#3ddc84"}
+mixn: {coal: "Coal", gas: "Gas", oil: "Oil", nuclear: "Nuclear", hydro: "Hydro", wind: "Wind", solar: "Solar", bio: "Bioenergy", other: "Other renewables"}
