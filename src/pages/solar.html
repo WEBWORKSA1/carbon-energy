@@ -1,0 +1,64 @@
+<!--{"title":"Solar Panel Savings Calculator — Size, Production & Payback for Your Address | Carbon.Energy","desc":"Free solar calculator using a full year of real sunshine data for your location. Get system size, annual kWh, bill savings, payback period, 25-year return and CO₂ avoided.","active":"solar.html","page":"solar","h1":"Solar savings estimator","sub":"Type your town or city. We pull last year's satellite-modelled solar radiation for that exact spot and size a system to your bill."}-->
+<section>
+<div class="wrap split" id="sol">
+  <div>
+    <div class="card pad">
+      <div class="field" style="position:relative">
+        <label for="s-place">Your town or city</label>
+        <input id="s-place" type="search" placeholder="e.g. Phoenix, Montréal, Pune, Brisbane…" autocomplete="off">
+        <div class="sugg" id="s-sugg" style="top:72px"></div>
+      </div>
+      <div id="s-status" style="margin-bottom:14px"><span class="muted small">Start typing and pick your location from the list.</span></div>
+      <div class="row">
+        <div class="field"><label for="s-bill">Average electricity bill per month ($)</label><input id="s-bill" type="number" min="0" value="150"></div>
+        <div class="field"><label for="s-price">Electricity price ($ per kWh)</label><input id="s-price" type="number" min="0" step="0.01" value="0.18"></div>
+      </div>
+      <div class="row">
+        <div class="field"><label for="s-off">Target bill offset (%)</label><input id="s-off" type="number" min="10" max="150" value="90"></div>
+        <div class="field"><label for="s-exp">Export credit (% of retail price)</label><input id="s-exp" type="number" min="0" max="100" value="50"></div>
+      </div>
+      <div class="row">
+        <div class="field"><label for="s-cpw">Installed cost ($ per watt)</label><input id="s-cpw" type="number" min="0.5" step="0.05" value="2.80"></div>
+        <div class="field"><label for="s-inc">Rebates / incentives (% of cost)</label><input id="s-inc" type="number" min="0" max="80" value="0"></div>
+      </div>
+      <div class="field"><label for="s-ci">Grid intensity to displace (gCO₂/kWh)</label><input id="s-ci" type="number" min="0" value="400"><span class="tiny dim">Auto-filled from your country when you pick a location.</span></div>
+      <p class="tiny dim" style="margin:0">Model: monthly shortwave radiation (Open-Meteo, ERA5-based) × tilt gain (up to 1.2 by latitude) × 80% performance ratio, 430 W panels, 0.5%/yr degradation and 3%/yr electricity-price growth. Incentives change often — check your national, state/provincial and utility programmes before you sign.</p>
+    </div>
+  </div>
+  <aside style="position:sticky;top:90px">
+    <div id="s-results" style="display:none">
+      <div class="result">
+        <span class="kicker">Recommended system</span>
+        <div class="big" id="s-kw">–</div>
+        <p class="small muted" id="s-pan" style="margin:8px 0 16px"></p>
+        <div class="grid g2" style="gap:10px">
+          <div class="card stat"><b class="a" id="s-prod">–</b><span>Annual production</span></div>
+          <div class="card stat"><b class="v" id="s-save">–</b><span>First-year savings</span></div>
+          <div class="card stat"><b id="s-cost">–</b><span>Net installed cost</span></div>
+          <div class="card stat"><b class="c" id="s-pay">–</b><span>Simple payback</span></div>
+          <div class="card stat"><b class="v" id="s-25">–</b><span>25-year net gain</span></div>
+          <div class="card stat"><b id="s-co2">–</b><span>CO₂ avoided</span></div>
+        </div>
+        <p class="tiny dim" id="s-yield" style="margin:10px 0 0"></p>
+        <h3 style="margin-top:18px">Monthly production (kWh)</h3>
+        <div class="chart" id="s-chart" style="height:220px"></div>
+        <a class="btn lg" href="quotes.html?s=solar" style="width:100%;margin-top:16px">Get 3 free solar quotes →</a>
+        <p class="tiny dim center" style="margin:8px 0 0">Installers confirm roof orientation, shading and exact pricing on a free survey.</p>
+      </div>
+    </div>
+    <div class="card" id="s-empty"><h3>☀️ How much could you save?</h3><p class="muted small">Pick your location to see a full production model. Most homes in sunny regions pay back a system in 6–10 years and then produce close-to-free power for another 15–20.</p><a class="btn alt sm" href="guides/is-solar-worth-it.html">Read: Is solar worth it?</a></div>
+  </aside>
+</div>
+</section>
+<section style="padding-top:0"><div class="wrap">
+  <div class="grid g3">
+    <div class="card"><h3>Orientation matters</h3><p class="small muted">South-facing roofs (north-facing in the southern hemisphere) are ideal. East/west splits lose 10–20% but match morning and evening use better.</p></div>
+    <div class="card"><h3>Self-consumption is king</h3><p class="small muted">Every kWh you use yourself saves the full retail price. Exported power often earns far less — that's when a battery or EV charging schedule pays off.</p></div>
+    <div class="card"><h3>Get three quotes</h3><p class="small muted">Prices for the same system routinely differ by 20–30% between installers. Comparing quotes is the single easiest way to shorten payback.</p></div>
+  </div>
+  <div class="grid g2" style="margin-top:24px">
+    <div><div class="vid" data-id="Yxt72aDjFgY" data-t="How Solar Panels Work — The Engineering Mindset"></div><p class="small" style="margin-top:8px"><b>Generate electricity: how solar panels work</b> · <span class="muted">The Engineering Mindset</span></p></div>
+    <div><div class="vid" data-id="xKxrkht7CpY" data-t="How do solar panels work? — TED-Ed"></div><p class="small" style="margin-top:8px"><b>How do solar panels work?</b> · <span class="muted">TED-Ed</span></p></div>
+  </div>
+</div></section>
+<script>document.addEventListener('DOMContentLoaded',function(){var r=document.getElementById('s-results'),e=document.getElementById('s-empty');new MutationObserver(function(){if(r.style.display==='block')e.style.display='none';}).observe(r,{attributes:true});});</script>

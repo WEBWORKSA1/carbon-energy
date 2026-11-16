@@ -1,0 +1,81 @@
+<!--{"title":"Carbon Footprint Calculator — Personal & Household CO₂ (Localised to Your Grid) | Carbon.Energy","desc":"Free carbon footprint calculator for individuals and households. Home energy, car, flights, diet and shopping — localised to your country's electricity grid, with a ranked plan to cut emissions.","active":"calculator.html","page":"calculator","h1":"Carbon footprint calculator","sub":"Estimate your annual emissions in about two minutes. Results update as you type and use your country's real grid carbon intensity.","schema":{"@context":"https://schema.org","@type":"WebApplication","name":"Carbon.Energy Carbon Footprint Calculator","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}}-->
+<section>
+<div class="wrap split" id="calc">
+  <div>
+    <div class="card pad">
+      <h3>🏠 Home</h3>
+      <div class="row">
+        <div class="field"><label for="c-country">Country (sets grid intensity)</label><select id="c-country"><option>Loading…</option></select></div>
+        <div class="field"><label for="c-hh">People in household</label><input id="c-hh" type="number" min="1" max="20" value="2"></div>
+      </div>
+      <div class="row">
+        <div class="field"><label for="c-kwh">Electricity use (kWh per month)</label><input id="c-kwh" type="number" min="0" value="700"><span class="tiny dim">Find it on your bill. Typical: 300–1,200.</span></div>
+        <div class="field"><label for="c-green">Renewable tariff share (%)</label><input id="c-green" type="number" min="0" max="100" value="0"></div>
+      </div>
+      <div class="row">
+        <div class="field"><label for="c-gas">Natural gas per month</label><input id="c-gas" type="number" min="0" value="600"></div>
+        <div class="field"><label for="c-gasu">Gas unit</label><select id="c-gasu"><option value="kwh">kWh</option><option value="m3">m³</option><option value="therm">therms</option></select></div>
+      </div>
+      <div class="row">
+        <div class="field"><label for="c-oil">Heating oil (litres per year)</label><input id="c-oil" type="number" min="0" value="0"></div>
+        <div class="field"><label for="c-lpg">Propane / LPG (litres per year)</label><input id="c-lpg" type="number" min="0" value="0"></div>
+      </div>
+    </div>
+    <div class="card pad" style="margin-top:18px">
+      <h3>🚗 Travel</h3>
+      <div class="row3">
+        <div class="field"><label for="c-fuel">Main car</label><select id="c-fuel"><option value="petrol">Petrol / gasoline</option><option value="diesel">Diesel</option><option value="petrol" data-h>Hybrid (use ~4.5)</option><option value="ev">Electric (kWh/100 km)</option><option value="none">No car</option></select></div>
+        <div class="field"><label for="c-km">km per year</label><input id="c-km" type="number" min="0" value="15000"></div>
+        <div class="field"><label for="c-eff">L/100 km (or kWh/100 km)</label><input id="c-eff" type="number" min="0" step="0.1" value="8"></div>
+      </div>
+      <div class="row">
+        <div class="field"><label for="c-bus">Bus km per week</label><input id="c-bus" type="number" min="0" value="10"></div>
+        <div class="field"><label for="c-rail">Train / metro km per week</label><input id="c-rail" type="number" min="0" value="20"></div>
+      </div>
+      <p class="small muted" style="margin:0 0 8px">Return flights per year</p>
+      <div class="row3">
+        <div class="field"><label for="c-fs">Short (&lt;3 h)</label><input id="c-fs" type="number" min="0" value="1"></div>
+        <div class="field"><label for="c-fm">Medium (3–6 h)</label><input id="c-fm" type="number" min="0" value="0"></div>
+        <div class="field"><label for="c-fl">Long (6 h+)</label><input id="c-fl" type="number" min="0" value="1"></div>
+      </div>
+    </div>
+    <div class="card pad" style="margin-top:18px">
+      <h3>🥗 Lifestyle</h3>
+      <div class="row">
+        <div class="field"><label for="c-diet">Diet</label><select id="c-diet"><option value="heavy">Meat with most meals</option><option value="avg" selected>Average / mixed</option><option value="low">Low meat</option><option value="pesc">Pescatarian</option><option value="veg">Vegetarian</option><option value="vegan">Vegan</option></select></div>
+        <div class="field"><label for="c-shop">Shopping &amp; services</label><select id="c-shop"><option value="min">Minimal / second-hand</option><option value="avg" selected>Average</option><option value="high">High spender</option></select></div>
+      </div>
+      <p class="tiny dim" style="margin:0">Flight factors include non-CO₂ warming effects (DEFRA approach). Diet values follow Scarborough et al. (2014, updated 2023). A fixed 0.8 t share covers public services and infrastructure.</p>
+    </div>
+  </div>
+  <aside style="position:sticky;top:90px">
+    <div class="result">
+      <span class="kicker">Your annual footprint</span>
+      <div class="big" id="r-total">–</div>
+      <p class="small muted" id="r-cmp" style="margin-top:12px"></p>
+      <div id="r-meter"></div>
+      <div class="brk" id="r-brk"></div>
+      <h3 style="margin-top:22px">Your biggest wins</h3>
+      <ul class="tip-list" id="r-tips"></ul>
+      <div class="btns" style="margin-top:18px"><a class="btn" href="quotes.html">Get free quotes to cut this</a><button class="btn alt" id="r-share" type="button">Share result</button></div>
+    </div>
+    <div class="card" style="margin-top:18px">
+      <h3>Email me my reduction plan</h3>
+      <p class="small muted">Get your results plus a 12-month action plan and local incentive pointers.</p>
+      <form data-ce-form="Footprint plan request" id="calc-lead" data-ok="Done! Your plan is on its way — check your inbox in the next 24 hours.">
+        <div class="row"><input name="name" placeholder="First name" required autocomplete="given-name"><input name="email" type="email" placeholder="Email" required autocomplete="email"></div>
+        <label class="check" style="margin-top:10px"><input type="checkbox" name="consent" value="yes" required> I agree to receive my plan and occasional tips. Unsubscribe any time.</label>
+        <input class="hp" name="_honey" tabindex="-1" autocomplete="off">
+        <button class="btn" type="submit" style="margin-top:10px;width:100%">Send my plan</button><div class="formmsg"></div>
+      </form>
+    </div>
+  </aside>
+</div>
+</section>
+<section style="padding-top:0"><div class="wrap narrow article">
+<h2>How this calculator works</h2>
+<p>Your footprint is the sum of seven categories. <b>Home energy</b> multiplies your electricity use by your country's average grid intensity (from Our World in Data / Ember) and your heating fuels by standard combustion factors — 0.183 kg CO₂e per kWh of natural gas, 2.54 kg per litre of heating oil and 1.56 kg per litre of LPG — then divides by the people in your home. <b>Car</b> emissions use 2.31 kg per litre of petrol and 2.68 kg per litre of diesel; electric cars use your grid. <b>Flights</b> use typical round-trip values per passenger including non-CO₂ effects. <b>Food</b> and <b>goods &amp; services</b> use diet and spending archetypes from life-cycle studies.</p>
+<p>The <b>2.3 tonne</b> reference reflects the per-person level broadly consistent with limiting warming to 1.5 °C by 2030. Most people in high-income countries are at 8–20 tonnes, so the biggest wins usually come from heating, driving and flying — which is why the plan ranks actions by tonnes saved, not by how virtuous they feel.</p>
+<h2>What to do next</h2>
+<ul><li>Run the <a href="solar.html">solar estimator</a> with your address to see production and payback.</li><li>Compare a <a href="tools.html#hp">heat pump against your boiler</a> and an <a href="tools.html#ev">EV against your car</a>.</li><li>Use the <a href="grid.html">live grid</a> to shift laundry and EV charging to cleaner hours.</li><li>When you're ready, <a href="quotes.html">compare free installer quotes</a>.</li></ul>
+</div></section>

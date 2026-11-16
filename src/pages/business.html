@@ -1,0 +1,67 @@
+<!--{"title":"Business Carbon Footprint Calculator — Scope 1, 2 & 3 Estimator for SMEs | Carbon.Energy","desc":"Estimate your company's Scope 1, 2 and 3 emissions in minutes. Free SME carbon calculator with per-employee intensity, offset budget and a free net-zero consultation.","active":"","page":"business","h1":"Business emissions estimator","sub":"A fast, spend- and activity-based Scope 1, 2 &amp; 3 baseline for small and mid-sized organisations — then a free call with a carbon-accounting specialist.","crumbs":[["Tools","tools.html"],["Business emissions",null]]}-->
+<section>
+<div class="wrap split" id="biz">
+  <div>
+    <div class="card pad">
+      <h3>Organisation</h3>
+      <div class="row">
+        <div class="field"><label for="b-country">Main operating country</label><select id="b-country"><option>Loading…</option></select></div>
+        <div class="field"><label for="b-emp">Employees (FTE)</label><input id="b-emp" type="number" min="1" value="25"></div>
+      </div>
+      <div class="row3">
+        <div class="field"><label for="b-area">Office / site area (m²)</label><input id="b-area" type="number" min="0" value="600"></div>
+        <div class="field"><label for="b-kwh">Electricity kWh/yr (optional)</label><input id="b-kwh" type="number" min="0" placeholder="auto from area"></div>
+        <div class="field"><label for="b-gas">Gas kWh/yr (optional)</label><input id="b-gas" type="number" min="0" placeholder="auto from area"></div>
+      </div>
+      <div class="field"><label for="b-green">Renewable electricity contracts (%)</label><input id="b-green" type="number" min="0" max="100" value="0"></div>
+      <h3 style="margin-top:10px">Fleet &amp; travel</h3>
+      <div class="row3">
+        <div class="field"><label for="b-fleet">Fleet km per year</label><input id="b-fleet" type="number" min="0" value="40000"></div>
+        <div class="field"><label for="b-fleetf">Fleet fuel</label><select id="b-fleetf"><option value="petrol">Petrol</option><option value="diesel">Diesel</option><option value="ev">Electric</option></select></div>
+        <div class="field"><label for="b-fs">Short-haul return flights/yr</label><input id="b-fs" type="number" min="0" value="12"></div>
+      </div>
+      <div class="row3">
+        <div class="field"><label for="b-fl">Long-haul return flights/yr</label><input id="b-fl" type="number" min="0" value="3"></div>
+        <div class="field"><label for="b-dist">Avg one-way commute (km)</label><input id="b-dist" type="number" min="0" value="15"></div>
+        <div class="field"><label for="b-mode">Main commute mode</label><select id="b-mode"><option value="car">Car</option><option value="mixed" selected>Mixed</option><option value="transit">Public transport</option><option value="active">Walk / bike</option></select></div>
+      </div>
+      <div class="field"><label for="b-remote">Remote-work share (%)</label><input id="b-remote" type="number" min="0" max="100" value="30"></div>
+      <h3 style="margin-top:10px">Supply chain (Scope 3)</h3>
+      <div class="row3">
+        <div class="field"><label for="b-spend">Purchased goods &amp; services ($/yr)</label><input id="b-spend" type="number" min="0" value="500000"></div>
+        <div class="field"><label for="b-it">IT, software &amp; cloud ($/yr)</label><input id="b-it" type="number" min="0" value="60000"></div>
+        <div class="field"><label for="b-waste">Waste to landfill (t/yr)</label><input id="b-waste" type="number" min="0" value="5"></div>
+      </div>
+      <p class="tiny dim" style="margin:0">Defaults: 100 kWh/m² electricity and 90 kWh/m² gas when meter data is blank; spend factor 0.25 kg CO₂e per $ (cross-sector EEIO average). Replace with supplier-specific data for reporting.</p>
+    </div>
+  </div>
+  <aside style="position:sticky;top:90px">
+    <div class="result">
+      <span class="kicker">Estimated annual emissions</span>
+      <div class="big" id="b-total">–</div>
+      <p class="small muted" id="b-per" style="margin:10px 0 14px"></p>
+      <div id="b-scopes"></div>
+      <div class="brk" id="b-brk"></div>
+    </div>
+    <div class="card" style="margin-top:18px">
+      <span class="badge v">Free 30-minute consultation</span>
+      <h3 style="margin-top:10px">Turn this estimate into a reportable baseline</h3>
+      <p class="small muted">Talk to a carbon-accounting partner about GHG Protocol inventories, SBTi targets, CSRD/ISSB disclosures, supplier requests and procurement-ready net-zero plans.</p>
+      <form data-ce-form="Business net-zero consultation" id="biz-lead" data-ok="Thank you — a specialist will contact you within one business day to book your free consultation.">
+        <input type="hidden" name="service" value="business-carbon">
+        <div class="row"><input name="name" placeholder="Full name" required autocomplete="name"><input name="company" placeholder="Company" required autocomplete="organization"></div>
+        <div class="row" style="margin-top:10px"><input name="email" type="email" placeholder="Work email" required autocomplete="email"><input name="phone" type="tel" placeholder="Phone (optional)" autocomplete="tel"></div>
+        <select name="need" style="margin-top:10px"><option>First carbon footprint / GHG inventory</option><option>Customer or tender requirement</option><option>CSRD / ISSB / SEC-style disclosure</option><option>Science-based / net-zero target</option><option>Renewable energy procurement / PPA</option><option>Carbon credits &amp; removals strategy</option><option>Commercial solar / on-site generation</option></select>
+        <label class="check" style="margin-top:10px"><input type="checkbox" name="consent" value="yes" required> I agree that Carbon.Energy and up to three vetted partners may contact me about this request.</label>
+        <input class="hp" name="_honey" tabindex="-1" autocomplete="off">
+        <button class="btn" type="submit" style="margin-top:10px;width:100%">Book my free consultation</button><div class="formmsg"></div>
+      </form>
+    </div>
+  </aside>
+</div>
+</section>
+<section style="padding-top:0"><div class="wrap narrow article">
+<h2>Scope 1, 2 and 3 in plain English</h2>
+<p><b>Scope 1</b> covers emissions from fuel you burn yourself — boilers, generators and company vehicles. <b>Scope 2</b> is the electricity, heat and steam you buy. <b>Scope 3</b> is everything else in your value chain: purchased goods, business travel, commuting, waste, logistics and the use of the products you sell. For most service businesses Scope 3 is 70–90% of the total, which is why customers increasingly ask suppliers for it.</p>
+<p>This estimator gives you a defensible starting point. A full inventory replaces averages with meter readings, fuel cards, travel-agency data and supplier-specific factors. Read our guide to <a href="guides/scope-1-2-3-emissions.html">building a Scope 1–3 baseline</a> for the step-by-step process.</p>
+</div></section>
